@@ -1,0 +1,348 @@
+schema: https://oss.korext.com/commit-carbon/factors-schema
+methodology_version: '1.0'
+last_updated: '2026-04-15'
+ai_tools:
+  - id: copilot
+    name: GitHub Copilot
+    completion_energy_estimates:
+      low_watts_seconds: 8
+      central_watts_seconds: 16
+      high_watts_seconds: 33
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 65
+      central_watts_seconds_per_1k_tokens: 130
+      high_watts_seconds_per_1k_tokens: 260
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023, Power Hungry Processing
+        derived: Inference energy for models in 10B-30B parameter range, PUE 1.2x
+      - type: infrastructure
+        citation: Azure sustainability data, Microsoft 2024 Environmental Report
+    last_reviewed: '2026-04-01'
+  - id: cursor
+    name: Cursor
+    completion_energy_estimates:
+      low_watts_seconds: 11
+      central_watts_seconds: 22
+      high_watts_seconds: 43
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 81
+      central_watts_seconds_per_1k_tokens: 163
+      high_watts_seconds_per_1k_tokens: 325
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+        derived: Higher due to multi-model routing architecture
+    last_reviewed: '2026-04-01'
+  - id: claude-code
+    name: Claude Code
+    completion_energy_estimates:
+      low_watts_seconds: 14
+      central_watts_seconds: 27
+      high_watts_seconds: 54
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 108
+      central_watts_seconds_per_1k_tokens: 217
+      high_watts_seconds_per_1k_tokens: 433
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+        derived: Larger model inference (estimated 50B+ parameters)
+    last_reviewed: '2026-04-01'
+  - id: codeium
+    name: Codeium
+    completion_energy_estimates:
+      low_watts_seconds: 7
+      central_watts_seconds: 14
+      high_watts_seconds: 27
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 54
+      central_watts_seconds_per_1k_tokens: 108
+      high_watts_seconds_per_1k_tokens: 217
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: aider
+    name: Aider
+    completion_energy_estimates:
+      low_watts_seconds: 11
+      central_watts_seconds: 22
+      high_watts_seconds: 43
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 81
+      central_watts_seconds_per_1k_tokens: 163
+      high_watts_seconds_per_1k_tokens: 325
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: codex-cli
+    name: OpenAI Codex CLI
+    completion_energy_estimates:
+      low_watts_seconds: 11
+      central_watts_seconds: 22
+      high_watts_seconds: 43
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 81
+      central_watts_seconds_per_1k_tokens: 163
+      high_watts_seconds_per_1k_tokens: 325
+    sources:
+      - type: academic
+        citation: Patterson et al. 2021, Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: gemini-code-assist
+    name: Gemini Code Assist
+    completion_energy_estimates:
+      low_watts_seconds: 10
+      central_watts_seconds: 19
+      high_watts_seconds: 38
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 70
+      central_watts_seconds_per_1k_tokens: 141
+      high_watts_seconds_per_1k_tokens: 282
+    sources:
+      - type: infrastructure
+        citation: Google Environmental Report 2024
+    last_reviewed: '2026-04-01'
+  - id: windsurf
+    name: Windsurf
+    completion_energy_estimates:
+      low_watts_seconds: 11
+      central_watts_seconds: 22
+      high_watts_seconds: 43
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 81
+      central_watts_seconds_per_1k_tokens: 163
+      high_watts_seconds_per_1k_tokens: 325
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: tabnine
+    name: Tabnine
+    completion_energy_estimates:
+      low_watts_seconds: 5
+      central_watts_seconds: 11
+      high_watts_seconds: 22
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 43
+      central_watts_seconds_per_1k_tokens: 87
+      high_watts_seconds_per_1k_tokens: 173
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: devin
+    name: Devin
+    completion_energy_estimates:
+      low_watts_seconds: 16
+      central_watts_seconds: 33
+      high_watts_seconds: 65
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 135
+      central_watts_seconds_per_1k_tokens: 271
+      high_watts_seconds_per_1k_tokens: 542
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: openhands
+    name: OpenHands
+    completion_energy_estimates:
+      low_watts_seconds: 14
+      central_watts_seconds: 27
+      high_watts_seconds: 54
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 108
+      central_watts_seconds_per_1k_tokens: 217
+      high_watts_seconds_per_1k_tokens: 433
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: amazon-q
+    name: Amazon Q Developer
+    completion_energy_estimates:
+      low_watts_seconds: 8
+      central_watts_seconds: 16
+      high_watts_seconds: 33
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 65
+      central_watts_seconds_per_1k_tokens: 130
+      high_watts_seconds_per_1k_tokens: 260
+    sources:
+      - type: infrastructure
+        citation: AWS Sustainability Pillar 2024
+    last_reviewed: '2026-04-01'
+  - id: jetbrains-ai
+    name: JetBrains AI Assistant
+    completion_energy_estimates:
+      low_watts_seconds: 8
+      central_watts_seconds: 16
+      high_watts_seconds: 33
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 65
+      central_watts_seconds_per_1k_tokens: 130
+      high_watts_seconds_per_1k_tokens: 260
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: sourcegraph-cody
+    name: Sourcegraph Cody
+    completion_energy_estimates:
+      low_watts_seconds: 10
+      central_watts_seconds: 19
+      high_watts_seconds: 38
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 70
+      central_watts_seconds_per_1k_tokens: 141
+      high_watts_seconds_per_1k_tokens: 282
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: replit-ai
+    name: Replit AI
+    completion_energy_estimates:
+      low_watts_seconds: 8
+      central_watts_seconds: 16
+      high_watts_seconds: 33
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 65
+      central_watts_seconds_per_1k_tokens: 130
+      high_watts_seconds_per_1k_tokens: 260
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: cline
+    name: Cline
+    completion_energy_estimates:
+      low_watts_seconds: 12
+      central_watts_seconds: 24
+      high_watts_seconds: 49
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 98
+      central_watts_seconds_per_1k_tokens: 190
+      high_watts_seconds_per_1k_tokens: 379
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: continue
+    name: Continue
+    completion_energy_estimates:
+      low_watts_seconds: 8
+      central_watts_seconds: 16
+      high_watts_seconds: 33
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 65
+      central_watts_seconds_per_1k_tokens: 130
+      high_watts_seconds_per_1k_tokens: 260
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: gpt-engineer
+    name: GPT Engineer
+    completion_energy_estimates:
+      low_watts_seconds: 14
+      central_watts_seconds: 27
+      high_watts_seconds: 54
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 108
+      central_watts_seconds_per_1k_tokens: 217
+      high_watts_seconds_per_1k_tokens: 433
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+  - id: bolt
+    name: Bolt
+    completion_energy_estimates:
+      low_watts_seconds: 14
+      central_watts_seconds: 27
+      high_watts_seconds: 54
+    chat_energy_estimates:
+      low_watts_seconds_per_1k_tokens: 108
+      central_watts_seconds_per_1k_tokens: 217
+      high_watts_seconds_per_1k_tokens: 433
+    sources:
+      - type: academic
+        citation: Luccioni et al. 2023
+    last_reviewed: '2026-04-01'
+grid_intensity_sources:
+  - id: electricity_maps
+    name: Electricity Maps
+    url: https://electricitymaps.com
+    coverage: global_country_level
+    granularity: hourly
+    license: commercial
+    free_tier: true
+  - id: iea
+    name: International Energy Agency
+    url: https://iea.org
+    coverage: global_country_level
+    granularity: annual
+    license: free_with_attribution
+  - id: epa_egrid
+    name: EPA eGRID
+    url: https://epa.gov/egrid
+    coverage: US_subnational
+    granularity: annual
+    license: public_domain
+  - id: watttime
+    name: WattTime
+    url: https://watttime.org
+    coverage: global
+    granularity: realtime
+    license: commercial
+default_fallback:
+  world_average_gco2e_per_kwh: 475
+  source: IEA World Energy Outlook 2024
+region_averages:
+  US: 369
+  EU: 241
+  CN: 543
+  IN: 628
+  JP: 462
+  GB: 195
+  FR: 58
+  DE: 357
+  CA: 120
+  AU: 510
+  BR: 61
+  KR: 415
+  SE: 13
+  'NO': 8
+  IS: 0
+  NZ: 82
+  SG: 395
+  IL: 453
+  ZA: 709
+  MX: 418
+  AR: 301
+  CL: 316
+  CO: 133
+  PL: 635
+  CZ: 395
+  AT: 93
+  CH: 16
+  BE: 145
+  NL: 286
+  DK: 109
+  FI: 67
+  IE: 253
+  IT: 315
+  ES: 161
+  PT: 148
+  RO: 258
+  HU: 206
+  TR: 423
+  TH: 457
+  MY: 538
+  PH: 552
+  ID: 614
+  VN: 467

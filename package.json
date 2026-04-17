@@ -1,0 +1,50 @@
+{
+  "name": "@korext/commit-carbon",
+  "version": "1.0.0",
+  "description": "Open standard for measuring AI assisted commit carbon emissions. CSRD, SEC, and CDP compatible disclosure reporting.",
+  "keywords": [
+    "carbon",
+    "emissions",
+    "sustainability",
+    "esg",
+    "csrd",
+    "sec",
+    "cdp",
+    "climate",
+    "ai",
+    "copilot",
+    "cursor",
+    "claude-code",
+    "greenhouse-gas",
+    "scope-3"
+  ],
+  "author": "Korext <tombruno@korext.com> (https://korext.com)",
+  "license": "Apache-2.0",
+  "homepage": "https://oss.korext.com/commit-carbon",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/korext/commit-carbon"
+  },
+  "bugs": {
+    "url": "https://github.com/korext/commit-carbon/issues"
+  },
+  "bin": {
+    "commit-carbon": "./bin/commit-carbon.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "action/",
+    "factors.yaml",
+    "LICENSE",
+    "LICENSE-SPEC",
+    "LICENSE-DATA",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}

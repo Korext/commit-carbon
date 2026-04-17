@@ -1,0 +1,47 @@
+name: 'Commit Carbon'
+description: 'Calculate AI coding emissions and track trends in CI'
+author: 'Korext'
+
+branding:
+  icon: 'cloud'
+  color: 'green'
+
+inputs:
+  region:
+    description: 'Grid region ISO country code'
+    required: false
+    default: 'US'
+  grid-provider:
+    description: 'Grid data provider (iea, epa_egrid, electricity_maps, watttime)'
+    required: false
+    default: 'iea'
+  grid-api-key:
+    description: 'API key for grid provider (if required)'
+    required: false
+    default: ''
+  max-emissions-kg:
+    description: 'Fail if period emissions exceed N kg CO2e (central estimate)'
+    required: false
+    default: ''
+  period:
+    description: 'Reporting period (last_week, last_month, last_quarter, all)'
+    required: false
+    default: 'last_month'
+
+outputs:
+  emissions-kg-central:
+    description: 'Central estimate in kg CO2e'
+  emissions-kg-low:
+    description: 'Low estimate in kg CO2e'
+  emissions-kg-high:
+    description: 'High estimate in kg CO2e'
+  per-commit-average:
+    description: 'Average emissions per AI commit in g CO2e'
+  region-intensity:
+    description: 'Grid intensity used in gCO2e/kWh'
+  status:
+    description: 'PASS or FAIL'
+
+runs:
+  using: 'node20'
+  main: 'index.js'
