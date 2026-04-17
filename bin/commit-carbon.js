@@ -87,8 +87,8 @@ function cmdScan(args) {
     return;
   }
 
-  const totalCommits = attestation.summary
-    ? (attestation.summary.total_commits || 0)
+  const totalCommits = (attestation.range && attestation.range.commits)
+    ? attestation.range.commits
     : 0;
   const totalAiCommits = toolEntries.reduce((s, t) => s + t.commits, 0);
 
@@ -97,7 +97,7 @@ function cmdScan(args) {
 
   // Print results
   console.log(`\n${bold('Commit Carbon')} v${VERSION}\n`);
-  console.log(`Repository: ${attestation.repository || process.cwd()}`);
+  console.log(`Repository: ${(attestation.repo && attestation.repo.name) || process.cwd()}`);
   console.log(`Period: ${period === 'all' ? 'All time' : period}`);
   console.log(`Grid region: ${region.toUpperCase()} (avg ${gridIntensity} gCO2e/kWh)\n`);
 
@@ -154,7 +154,7 @@ function cmdReport(args) {
   const factors = loadFactors();
   const gridIntensity = getGridIntensity(factors, region);
   const toolEntries = extractToolUsage(attestation);
-  const totalCommits = attestation.summary ? (attestation.summary.total_commits || 0) : 0;
+  const totalCommits = (attestation.range && attestation.range.commits) ? attestation.range.commits : 0;
 
   const result = calculateAggregate({ tools: toolEntries, factors, gridIntensity });
   const reportData = { result, region, gridIntensity, period: 'all', totalCommits };
@@ -302,16 +302,19 @@ function detectRegion() {
 
 function extractToolUsage(attestation) {
   const tools = [];
-  if (attestation.tools) {
-    for (const t of attestation.tools) {
-      if (t.commits && t.commits > 0) {
-        tools.push({
-          tool: normalizeToolId(t.name || t.id || ''),
-          name: t.name || t.id || '',
-          commits: t.commits,
-          avgLinesPerCommit: t.avg_lines_per_commit || 50,
-        });
-      }
+  // Support both schema layouts:
+  //   attestation.ai.tools (current ai-attestation v1.0 schema)
+  //   attestation.tools    (legacy / flat layout)
+  const toolSource = (attestation.ai && attestation.ai.tools) || attestation.tools || [];
+  for (const t of toolSource) {
+    const commitCount = t.commit_count || t.commits || 0;
+    if (commitCount > 0) {
+      tools.push({
+        tool: normalizeToolId(t.name || t.identifier || t.id || ''),
+        name: t.name || t.identifier || t.id || '',
+        commits: commitCount,
+        avgLinesPerCommit: t.avg_lines_per_commit || 50,
+      });
     }
   }
   return tools;
