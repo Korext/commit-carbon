@@ -35,6 +35,39 @@ Commit Carbon is not a compliance tool. It provides data for compliance reportin
 
 Commit Carbon is not a greenwashing instrument. Default parameters are conservative. The methodology is transparent. Results are auditable.
 
+## Output Schema
+
+Running `commit-carbon scan` produces a `.commit-carbon.yaml` file with the following structure:
+
+```yaml
+schema: https://oss.korext.com/commit-carbon/output-schema
+generated: 2026-04-15T12:00:00Z
+methodology_version: "1.0"
+repository: acme/payments-service
+period: all
+region: US
+grid_intensity_gco2e_per_kwh: 369
+total_commits: 1247
+total_ai_commits: 438
+tools:
+  - id: copilot
+    name: GitHub Copilot
+    commits: 438
+    emissions_kgco2e:
+      low: 7.30
+      central: 14.59
+      high: 29.18
+total_emissions_kgco2e:
+  low: 7.30
+  central: 14.59
+  high: 29.18
+per_ai_commit_average_gco2e:
+  low: 16.7
+  central: 33.3
+  high: 66.6
+confidence: central
+```
+
 ## Report Schema
 
 A Commit Carbon report contains:

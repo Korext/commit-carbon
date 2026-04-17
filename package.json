@@ -23,13 +23,13 @@
   "homepage": "https://oss.korext.com/commit-carbon",
   "repository": {
     "type": "git",
-    "url": "https://github.com/korext/commit-carbon"
+    "url": "git+https://github.com/korext/commit-carbon.git"
   },
   "bugs": {
     "url": "https://github.com/korext/commit-carbon/issues"
   },
   "bin": {
-    "commit-carbon": "./bin/commit-carbon.js"
+    "commit-carbon": "bin/commit-carbon.js"
   },
   "files": [
     "bin/",
