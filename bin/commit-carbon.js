@@ -8,7 +8,7 @@ const { loadFactors, getToolFactor, getGridIntensity } = require('../src/factors
 const { calculateAggregate, getEquivalents } = require('../src/calculator');
 const { generateReport } = require('../src/reporter');
 
-const VERSION = '1.0.0';
+const VERSION = '1.0.2';
 
 // ── Helpers ──
 

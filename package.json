@@ -1,6 +1,6 @@
 {
   "name": "@korext/commit-carbon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Open standard for measuring AI assisted commit carbon emissions. CSRD, SEC, and CDP compatible disclosure reporting.",
   "keywords": [
     "carbon",
